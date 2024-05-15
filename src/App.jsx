@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { NavBar } from './components/navBar';
+import { MessagesAreaTop } from './components/messagesAreaTop';
+import { TalkProfile } from './components/talkProfile';
 import { socket } from './socket'
 
 function App() {
@@ -12,10 +15,11 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div>Olá, mundo!</div>
-      {JSON.stringify(talk)}
-    </div>
+    <main className='flex'>
+      <NavBar />
+      <MessagesAreaTop />
+      <TalkProfile />
+    </main>
   )
 }
 
