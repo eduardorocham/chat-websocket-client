@@ -3,7 +3,7 @@ import { IoVideocamOutline } from "react-icons/io5";
 
 export const MessagesAreaTop = () => {
     return (
-        <header className="py-4 px-8 border-b h-[80px] w-[60%] flex justify-between items-center">
+        <header className="py-4 px-8 border-b h-[80px] flex justify-between items-center">
             <div className="flex items-center gap-3">
                 <img
                     src="/images/girl.jpg"
