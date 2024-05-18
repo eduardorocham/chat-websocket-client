@@ -2,7 +2,7 @@ import { CiSearch } from "react-icons/ci";
 import { FiImage } from "react-icons/fi";
 import { SlOptions } from "react-icons/sl";
 
-export const TalkProfile = () => {
+export const RecipientProfile = () => {
     return (
         <div className="px-5 py-6 w-[20%] border-l">
             <div className="flex flex-col gap-4 items-center mb-4">

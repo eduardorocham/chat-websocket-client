@@ -1,7 +1,7 @@
 import { FiPhone } from "react-icons/fi";
 import { IoVideocamOutline } from "react-icons/io5";
 
-export const MessagesAreaTop = () => {
+export const Recipient = () => {
     return (
         <header className="py-4 px-8 border-b h-[80px] flex justify-between items-center">
             <div className="flex items-center gap-3">
