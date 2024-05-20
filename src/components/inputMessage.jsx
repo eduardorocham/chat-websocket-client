@@ -5,7 +5,7 @@ import { RiEmotionHappyLine } from "react-icons/ri";
 import { FiImage } from "react-icons/fi";
 import { IoMdSend } from "react-icons/io";
 
-export const InputMessage = () => {
+export const InputMessage = ({ setTalk }) => {
     const [message, setMessage] = useState('');
 
     const now = new Date();
@@ -13,40 +13,45 @@ export const InputMessage = () => {
     const isoString = now.toISOString();
 
     const objectMessage = {
-        senderId: "6648bf982785f2ec07bb11d7",
-        content: message,
-        timestamp: isoString
+        talk_id: '664b717722bc5f1867d8a4f2',
+        message: {
+            senderId: "664b717722bc5f1867d8a4ef",
+            content: message,
+            timestamp: isoString
+        }
     }
 
     const sendMessage = () => {
         socket.emit("send_message", objectMessage, (response) => {
-            console.log(response);
+            setTalk(response);
         });
+        setMessage('');
     }
 
     return (
         <div className="px-8 py-4">
             <div className="py-3 px-4 flex w-full border border-gray-200 rounded-lg">
-                <input 
-                    placeholder="Enviar mensagem..." 
+                <input
+                    placeholder="Enviar mensagem..."
                     className="flex-1 outline-none"
                     onChange={(e) => setMessage(e.target.value)}
+                    value={message}
                 />
-                <button 
+                <button
                     className="rounded-full bg-black w-8 h-8 flex items-center justify-center mr-2"
                     onClick={sendMessage}
                 >
-                    <IoMdSend className="w-4 h-4 text-white"/>
+                    <IoMdSend className="w-4 h-4 text-white" />
                 </button>
                 <div className="flex items-center gap-3">
                     <button>
-                        <TiMicrophoneOutline className="w-6 h-6 text-gray-400"/>
+                        <TiMicrophoneOutline className="w-6 h-6 text-gray-400" />
                     </button>
                     <button>
-                        <RiEmotionHappyLine className="w-6 h-6 text-gray-400"/>
+                        <RiEmotionHappyLine className="w-6 h-6 text-gray-400" />
                     </button>
                     <button>
-                        <FiImage className="w-6 h-6 text-gray-400"/>
+                        <FiImage className="w-6 h-6 text-gray-400" />
                     </button>
                 </div>
             </div>

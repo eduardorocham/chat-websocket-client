@@ -9,7 +9,7 @@ function App() {
   const [talk, setTalk] = useState(null);
 
   useEffect(() => {
-    socket.emit("get_talk", "6648bf982785f2ec07bb11da", (response) => {
+    socket.emit("get_talk", "664b717722bc5f1867d8a4f2", (response) => {
       setTalk(response);
     });
   }, []);
@@ -17,7 +17,10 @@ function App() {
   return (
     <main className='flex'>
       <NavBar />
-      <Chat talk={talk} />
+      <Chat
+        talk={talk}
+        setTalk={setTalk}
+      />
       <RecipientProfile />
     </main>
   )
